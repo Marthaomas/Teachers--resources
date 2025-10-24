@@ -1,0 +1,24 @@
+/* @import "tailwindcss"; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Keep original color */
+.filter-original {
+    filter: none;
+  }
+  
+  
+.filter-green {
+    filter: brightness(0) saturate(100%) invert(67%) sepia(83%) saturate(520%) hue-rotate(46deg) brightness(95%) contrast(90%);
+  }
+ 
+.filter-gray {
+    filter: brightness(0) saturate(100%) invert(27%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(90%);
+  }
+  
+.filter-green {
+    filter: brightness(0) saturate(100%) invert(72%) sepia(63%) saturate(573%) hue-rotate(47deg) brightness(93%) contrast(90%);
+  }
+  
