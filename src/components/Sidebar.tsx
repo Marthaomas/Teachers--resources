@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import logo from "../assets/logo.png";
 import dashboardIcon from "../assets/dashboard.png";
@@ -9,12 +10,13 @@ import logoutIcon from "../assets/logout.png";
 
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const [active, setActive] = useState("dashboard");
 
   const menuItems = [
-    { id: "dashboard", label: "Dashboard", icon: dashboardIcon },
-    { id: "session", label: "Session Record", icon: filesIcon },
-    { id: "announcements", label: "Announcements", icon: chatIcon },
+    { id: "dashboard", label: "Dashboard", icon: dashboardIcon ,path: "/dashboard"},
+    { id: "session", label: "Session Record", icon: filesIcon, path:"/" },
+    { id: "announcements", label: "Announcements", icon: chatIcon, },
   ];
 
   const bottomMenu = [
@@ -41,7 +43,11 @@ const Sidebar = () => {
           return (
             <button
               key={item.id}
-              onClick={() => setActive(item.id)}
+              onClick={() => {
+                setActive(item.id);
+                navigate(item.path);
+              }}
+              
               className={`flex items-center gap-[8px] w-[224px] h-[48px] px-[16px] py-[8px]
                 text-[16px] font-normal rounded-[8px]
                 border-none outline-none shadow-none transition-all duration-200
