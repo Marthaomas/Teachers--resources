@@ -7,12 +7,12 @@ import girl from "../assets/girl.png";
 const Dashboard = () => {
   const location = useLocation();
   const [showAnnouncement, setShowAnnouncement] = useState(true);
-  const showAnnouncements = location.pathname === "/dashboard";
+  const showAnnouncements = location.pathname === "/";
 
   return (
     <div className="flex h-screen bg-[#F9F9F9]">
       <Sidebar />
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 hidden min-[500px]:flex">
         <Header title="Alagbara International College" showSchoolLogo />
 
         {showAnnouncements && showAnnouncement && (

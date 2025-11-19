@@ -8,24 +8,18 @@ import ellipse from "../assets/ellipse.png";
 import settingsIcon from "../assets/setting.png";
 import logoutIcon from "../assets/logout.png";
 
-
 const Sidebar = () => {
   const navigate = useNavigate();
   const [active, setActive] = useState("dashboard");
 
   const menuItems = [
-    { id: "dashboard", label: "Dashboard", icon: dashboardIcon ,path: "/dashboard"},
-    { id: "session", label: "Session Record", icon: filesIcon, path:"/" },
-    { id: "announcements", label: "Announcements", icon: chatIcon, },
-  ];
-
-  const bottomMenu = [
-    { id: "files", label: "Files", icon: filesIcon },
-    { id: "chat", label: "Chat", icon: chatIcon },
+    { id: "dashboard", label: "Dashboard", icon: dashboardIcon, path: "/" },
+    { id: "session", label: "Session Record", icon: filesIcon, path: "/session-record" },
+    { id: "announcements", label: "Announcements", icon: chatIcon, path: "/announcements" },
   ];
 
   return (
-    <aside className="w-[280px] h-screen border-r border-[#B2B2B2]/40 flex flex-col justify-between bg-white">
+    <aside className=" w-[280px] h-screen border-r border-[#B2B2B2]/40 flex flex-col justify-between bg-white">
       {/* Logo section */}
       <div className="border-b border-[#B2B2B2]/40 px-[36px] py-[36px]">
         <img
@@ -128,8 +122,6 @@ const Sidebar = () => {
   </button>
 </div>
 </div>
-
-      
     </aside>
   );
 };
