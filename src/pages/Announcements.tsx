@@ -16,7 +16,7 @@ const Announcements = () => {
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
       <div className="flex-1">
-        <Header title="Session Record - JSS1 " />
+        {/* <Header title="Session Record - JSS1 " /> */}
 
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-[45px] w-full max-w-[1200px] mx-auto px-4">
           {/* Mobile Heading */}
@@ -97,104 +97,88 @@ const Announcements = () => {
           </div>
         </div>
 
-        {/* Stat cards section */}
-        <div
-          className="
+       {/* Stat cards section */}
+<div
+  className="
     flex flex-wrap
-    md:flex-row md:justify-between
     gap-[12px]
     w-full md:w-[1088px]
     ml-0 md:ml-[50px]
     mt-[32px]
     px-[16px] md:px-0
   "
-        >
-          {/* No of Subjects Offered */}
-          <div
-            className="
-    w-[48%]      /* 2 per row mobile */
-    h-[122px]
-    md:w-[254px] md:h-[158px]
-    bg-[#255C99] rounded-[20px] border border-[#255C99]
-    py-[8px] px-[12px]
-    flex flex-col justify-between text-white
-  "
-          >
-            <img src={bookIcon} className="w-[42px] h-[42px] mt-[12px]" />
-            <div className="flex flex-col items-start mt-[8px]">
-              <span className="font-semibold text-[24px] leading-[120%] -translate-y-[10px]">
-                16
-              </span>
-              <span className="text-[12px] leading-[100%]">
-                No of Subjects Offered
-              </span>
-            </div>
-          </div>
+>
+  {/* Card Item */}
+  <div
+    className="
+      w-[48%]   /* 2 per row mobile */
+      md:w-[254px]
+      h-[122px] md:h-[158px]
+      bg-[#255C99] rounded-[20px] border border-[#255C99]
+      py-[8px] px-[12px]
+      flex flex-col justify-between text-white
+    "
+  >
+    <img src={bookIcon} className="w-[42px] h-[42px] mt-[12px]" />
+    <div className="flex flex-col items-start mt-[8px]">
+      <span className="font-semibold text-[24px] leading-[120%] -translate-y-[10px]">16</span>
+      <span className="text-[12px] leading-[100%]">No of Subjects Offered</span>
+    </div>
+  </div>
 
-          {/* No of Times Present */}
-          <div
-            className="
-    w-[48%]
-    h-[122px]
-    md:w-[254px] md:h-[158px]
-    bg-[#E67E22] rounded-[20px] border border-[#E67E22]
-    py-[8px] px-[12px]
-    flex flex-col justify-between text-white
-  "
-          >
-            <img src={medalIcon} className="w-[42px] h-[42px] mt-[12px]" />
-            <div className="flex flex-col items-start mt-[8px]">
-              <span className="font-semibold text-[24px] leading-[120%] -translate-y-[10px]">
-                90 of 120
-              </span>
-              <span className="text-[12px] leading-[100%]">
-                No of Times Present
-              </span>
-            </div>
-          </div>
+  {/* Repeat cards below with the same width classes */}
+  <div
+    className="
+      w-[48%]
+      md:w-[254px]
+      h-[122px] md:h-[158px]
+      bg-[#E67E22] rounded-[20px] border border-[#E67E22]
+      py-[8px] px-[12px]
+      flex flex-col justify-between text-white
+    "
+  >
+    <img src={medalIcon} className="w-[42px] h-[42px] mt-[12px]" />
+    <div className="flex flex-col items-start mt-[8px]">
+      <span className="font-semibold text-[24px] leading-[120%] -translate-y-[10px]">90 of 120</span>
+      <span className="text-[12px] leading-[100%]">No of Times Present</span>
+    </div>
+  </div>
 
-          {/* Total Term Score */}
-          <div
-            className="
-    w-[48%]
-    h-[122px]
-    md:w-[254px] md:h-[158px]
-    bg-[#6A0DAD] rounded-[20px] border border-[#6A0DAD]
-    py-[8px] px-[12px]
-    flex flex-col justify-between text-white
-  "
-          >
-            <img src={layersIcon} className="w-[42px] h-[42px] mt-[12px]" />
-            <div className="flex flex-col items-start mt-[8px]">
-              <span className="font-semibold text-[24px] leading-[120%] -translate-y-[10px]">
-                1667
-              </span>
-              <span className="text-[12px] leading-[100%]">
-                Total Term Score
-              </span>
-            </div>
-          </div>
+  <div
+    className="
+      w-[48%]
+      md:w-[254px]
+      h-[122px] md:h-[158px]
+      bg-[#6A0DAD] rounded-[20px] border border-[#6A0DAD]
+      py-[8px] px-[12px]
+      flex flex-col justify-between text-white
+    "
+  >
+    <img src={layersIcon} className="w-[42px] h-[42px] mt-[12px]" />
+    <div className="flex flex-col items-start mt-[8px]">
+      <span className="font-semibold text-[24px] leading-[120%] -translate-y-[10px]">1667</span>
+      <span className="text-[12px] leading-[100%]">Total Term Score</span>
+    </div>
+  </div>
 
-          {/* Average */}
-          <div
-            className="
-    w-[48%]
-    h-[122px]
-    md:w-[254px] md:h-[158px]
-    bg-[#C0392B] rounded-[20px] border border-[#C0392B]
-    py-[8px] px-[12px]
-    flex flex-col justify-between text-white
-  "
-          >
-            <img src={graphIcon} className="w-[42px] h-[42px] mt-[12px]" />
-            <div className="flex flex-col items-start mt-[8px]">
-              <span className="font-semibold text-[24px] leading-[120%] -translate-y-[10px]">
-                58.1
-              </span>
-              <span className="text-[12px] leading-[100%]">Average</span>
-            </div>
-          </div>
-        </div>
+  <div
+    className="
+      w-[48%]
+      md:w-[254px]
+      h-[122px] md:h-[158px]
+      bg-[#C0392B] rounded-[20px] border border-[#C0392B]
+      py-[8px] px-[12px]
+      flex flex-col justify-between text-white
+    "
+  >
+    <img src={graphIcon} className="w-[42px] h-[42px] mt-[12px]" />
+    <div className="flex flex-col items-start mt-[8px]">
+      <span className="font-semibold text-[24px] leading-[120%] -translate-y-[10px]">58.1</span>
+      <span className="text-[12px] leading-[100%]">Average</span>
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
   );
