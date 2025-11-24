@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
+import trash from "../assets/trash.png";
+import pencil from "../assets/pencil.png";
 
 const SessionRecord = () => {
   const navigate = useNavigate();
@@ -26,11 +28,6 @@ const SessionRecord = () => {
       {/* Sidebar */}
       <Sidebar />
 
-      {/* Main Content */}
-      {/* <div className="flex flex-col flex-1">
-        
-        <Header title="Session Record" /> */}
-
       {/* Content Area */}
       <div className="flex-1 px-4 py-6 md:px-[40px] md:py-[24px]">
         {/* Heading + Filter Wrapper */}
@@ -41,171 +38,144 @@ const SessionRecord = () => {
           </h1>
           {/* Filter Section */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-end mb-4 gap-3">
-            {/* Desktop label (hidden on mobile) */}
-            <label className="hidden md:block text-[#8C8C8C] text-[16px] font-medium leading-[120%]">
+            {/* Desktop label only */}
+            <label className="hidden md:block text-[#101010] font-normal text-[16px] leading-[120%]">
               Status
             </label>
 
-            {/* Select container */}
+            {/* Container */}
             <div
-              className="relative 
-      flex items-center justify-between
-      bg-white border border-[#B2B2B2] rounded-[8px]
-      px-3
-      w-full max-w-[345px] h-[59px]        /* MOBILE SIZE */
-      md:w-[130px] md:h-[44px]
-      mt-2 lg:mt-0  /* DESKTOP SIZE */
-    "
+              className="
+    relative flex flex-col items-start justify-center
+    bg-white border border-[#B2B2B2]
+    rounded-[8px]
+
+    /* MOBILE */
+    w-full h-[60px] px-3 py-2 gap-[2px]
+    md:w-[110px] md:h-[44px] 
+    md:flex-row md:items-center md:justify-between 
+    md:px-3 md:py-0
+    md:ml-[-6px]
+  "
             >
-              {/* Status label INSIDE box ONLY on mobile */}
-              <span className="text-[#8C8C8C] text-[14px] font-medium md:hidden">
+              {/* MOBILE Label */}
+              <span className="text-[#8C8C8C] text-[13px] font-medium leading-none md:hidden">
                 Status
               </span>
 
-              {/* Dropdown */}
+              {/* Select */}
               <select
                 value={filter}
                 onChange={(e) => setFilter(e.target.value)}
                 className="
-        bg-transparent outline-none cursor-pointer
-        text-[#101010] text-[16px] font-normal
-        w-auto text-right md:text-left
-      "
+      bg-transparent outline-none cursor-pointer
+      text-[#101010] 
+      text-[15px] md:text-[14px]
+      font-normal leading-none
+      w-full
+    "
               >
                 <option value="Active">Active</option>
                 <option value="Not Active">Not Active</option>
                 <option value="All">All</option>
               </select>
-              {/* Dropdown icon */}
-              {/* <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="10"
-      height="5"
-      viewBox="0 0 10 5"
-      fill="none"
-      className={`absolute ${
-        filter === "Not Active" ? "right-[6px]" : "right-[16px]"
-      } top-1/2 -translate-y-1/2 pointer-events-none`}
-    >
-      <path
-        d="M1 1L5 4L9 1"
-        stroke="#4D4D4D"
-        strokeWidth="1.67"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg> */}
             </div>
           </div>
         </div>
-
         {/* Table Section */}
-        <div className="hidden md:block mt-[30px] bg-white rounded-[12px] shadow-sm border border-[#101010] ">
+        <div className="hidden md:block mt-[30px] bg-white rounded-[12px] shadow-sm border border-[#101010] overflow-x-auto">
           {/* Table Header */}
-          <div className="border-b border-[#A3A3A3] flex justify-between items-center px-[24px] py-[16px] text-[#101010] font-semibold text-[18px]">
-            <div className="w-1/4 text-[#8C8C8C] text-[16px] font-medium font-['Inter'] leading-[120%]">
-              Name
-            </div>
-            <div className="w-1/4 text-[#8C8C8C] text-[16px] font-medium font-['Inter'] leading-[120%]">
-              Period
-            </div>
-            <div className="w-1/10 text-[#8C8C8C] text-[16px] font-medium font-['Inter'] leading-[120%]">
-              Status
-            </div>
-            <div className="w-1/4 text-right pr-[80px] text-[#8C8C8C] text-[16px] font-medium font-['Inter'] leading-[120%]">
-              Action
-            </div>
+          <div
+            className="
+      grid grid-cols-[1fr_1fr_1fr_auto]
+      px-[24px] py-[16px]
+      border-b border-[#A3A3A3]
+      text-[#8C8C8C] text-[16px] font-medium
+    "
+          >
+            <div className="text-left">Name</div>
+            <div className="text-left">Period</div>
+            <div className="text-left">Status</div>
+            <div className="text-right pr-8">Action</div>
           </div>
 
           {/* Table Rows */}
           {filteredSessions.map((session, index) => (
             <div
               key={session.id}
-              className={`flex justify-between items-center px-[24px] py-[16px] text-[#4D4D4D] text-[16px] ${
-                index === 0 || index === 2 ? "bg-[#F4F4F4] mx-[1px] " : ""
-              } ${
-                index !== filteredSessions.length - 1
-                  ? "border-b border-[#E5E5E5]"
-                  : ""
-              }`}
+              className={`
+        grid grid-cols-[1fr_1fr_1fr_auto]
+        px-[24px] py-[16px] text-[16px]
+        border-b border-[#E5E5E5]
+        ${index % 2 === 0 ? "bg-[#F4F4F4]" : ""}
+      `}
             >
-              <div className="text-[#101010] text-[16px] font-medium font-['Inter'] leading-[120%] w-860px] h-[19px] mt-[26px] ml-[2px]">
+              {/* NAME */}
+              <div className="text-[#101010] font-medium text-left">
                 {session.name}
               </div>
-              <div className="text-[#101010] text-[16px] font-medium font-['Inter'] leading-[120%] w-[87px] h-[19px] mt-[26px] ml-[120px]">
+
+              {/* PERIOD */}
+              <div className="text-[#101010] font-medium text-left">
                 {session.period}
               </div>
-              <div className="flex items-center gap-[12px] w-[90px] h-[33px] mt-[21px] ml-[150px] mr-[30px] px-[6px] py-[4px] border border-[#DBDBDB] rounded-[6px]">
-                <span
-                  className={`w-[8px] h-[8px] rounded-full ${
-                    session.status === "Active"
-                      ? "bg-[#82C220]"
-                      : "bg-[#B2B2B2]"
-                  }`}
-                ></span>
-                <span className="text-[#4D4D4D] text-[14px] font-normal font-['Inter'] leading-[120%]">
-                  {session.status}
-                </span>
-              </div>
-              <div className="relative w-1/4 text-right pr-[40px]">
-                <div className="relative inline-block">
-                  <button
-                    onClick={() =>
-                      setOpen(open === session.id ? null : session.id)
-                    }
-                    className="bg-[#82C220] text-[#FFFFFF]
-                    w-[81px] h-[32px]
-                    rounded-[6px] font-medium font-['Inter'] text-[14px]
-                    border-none outline-none
-                    flex items-center justify-between
-                    px-[10px]"
-                  >
-                    <span className="mr-[8px]">View</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="8"
-                      height="4"
-                      viewBox="0 0 8 4"
-                      fill="none"
-                      className={`ml-[6px] relative top-[-2px] transition-transform duration-200 ${
-                        open ? "rotate-180" : ""
-                      }`}
-                    >
-                      <path
-                        d="M0.666687 0.666687L4.00002 3.33335L7.33335 0.666687"
-                        stroke="white"
-                        strokeWidth="1.33"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-                  {/* Dropdown menu */}
-                  {open === session.id && (
-                    <div className="absolute left-0 mt-[-2px] w-[150px] bg-[#F3F9E9] rounded-b-[10px] shadow-md z-10 flex flex-col">
-                      {["First Term", "Second Term", "Third Term"].map(
-                        (term) => (
-                          <button
-                            key={term}
-                            onClick={() => {
-                              if (term === "First Term") {
-                                navigate("/Announcements");
-                              } else {
-                                console.log(
-                                  `Clicked ${term} for ${session.name}`
-                                );
-                              }
-                              setOpen(null); // close dropdown after clicking
-                            }}
-                            className="text-[#101010] text-[14px] font-['Inter'] py-[10px] px-[16px] text-left bg-[#F3F9E9] hover:bg-[#E2F0D5] cursor-pointer border-none outline-none"
-                          >
-                            {term}
-                          </button>
-                        )
-                      )}
-                    </div>
-                  )}
+
+              {/* STATUS */}
+              <div className="flex items-center text-left">
+                <div
+                  className="
+            flex items-center gap-2
+            border border-[#DBDBDB]
+            rounded-[6px]
+            px-3 py-[4px]
+            w-[90px] h-[33px]
+          "
+                >
+                  <span
+                    className={`w-2 h-2 rounded-full ${
+                      session.status === "Active"
+                        ? "bg-[#82C220]"
+                        : "bg-[#B2B2B2]"
+                    }`}
+                  />
+                  <span className="text-[14px] text-[#101010] leading-none">
+                    {session.status}
+                  </span>
                 </div>
+              </div>
+
+              {/* ACTION */}
+              <div className="flex justify-end pr-4 relative">
+                <button
+                  onClick={() =>
+                    setOpen(open === session.id ? null : session.id)
+                  }
+                  className="
+            bg-[#82C220] text-white w-[81px] h-[32px]
+            rounded-[6px] font-medium text-[14px]
+            flex items-center justify-center gap-2
+          "
+                >
+                  View
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="8"
+                    height="4"
+                    viewBox="0 0 8 4"
+                    fill="none"
+                    className={`transition-transform duration-200 mt-[2px] ${
+                      open === session.id ? "rotate-180" : ""
+                    }`}
+                  >
+                    <path
+                      d="M0.666687 0.666687L4.00002 3.33335L7.33335 0.666687"
+                      stroke="white"
+                      strokeWidth="1.33"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
               </div>
             </div>
           ))}
@@ -219,10 +189,31 @@ const SessionRecord = () => {
               className="w-full bg-[#FFFFFF] rounded-[6px] p-4 space-y-3 border border-[#E5E5E5]"
             >
               {/* Session Header */}
+
               <div className="flex items-center justify-between w-full h-[50px] bg-white px-[12px] py-[8px] border-b border-[#E5E5E5]">
                 <p className="text-[#101010] text-[18px] font-medium leading-[100%]">
                   2024/2025 Session
                 </p>
+
+                {index > 0 && (
+                  <div className="flex items-center gap-2">
+                    {/* EDIT BUTTON */}
+                    <button
+                      onClick={() => console.log(`Edit ${session.name}`)}
+                      className="w-[32px] h-[32px] border border-[#DBDBDB] rounded-[8px] flex items-center justify-center"
+                    >
+                      <img src={pencil} alt="edit" />
+                    </button>
+
+                    {/* DELETE BUTTON */}
+                    <button
+                      onClick={() => console.log(`Delete ${session.name}`)}
+                      className="w-[32px] h-[32px] border border-[#DBDBDB] rounded-[8px] flex items-center justify-center"
+                    >
+                      <img src={trash} alt="delete" />
+                    </button>
+                  </div>
+                )}
               </div>
 
               {/* Name */}
@@ -265,37 +256,38 @@ const SessionRecord = () => {
 
               {/* Action Button */}
               <div className="relative w-full">
-  {/* BUTTON */}
-  <button
-    onClick={() => setOpen(open === session.id ? null : session.id)}
-    className="bg-[#82C220] text-white w-full h-[48px] px-[16px] py-[6px] rounded-[6px] text-[14px] font-medium"
-  >
-    View
-  </button>
+                {/* BUTTON */}
+                <button
+                  onClick={() =>
+                    setOpen(open === session.id ? null : session.id)
+                  }
+                  className="bg-[#82C220] text-white w-full h-[48px] px-[16px] py-[6px] rounded-[6px] text-[14px] font-medium"
+                >
+                  View
+                </button>
 
-  {/* DROPDOWN */}
-  {open === session.id && (
-    <div className="absolute left-0 top-[52px] w-full bg-[#F3F9E9] rounded-b-[10px] shadow-md z-10 flex flex-col">
-      {["First Term", "Second Term", "Third Term"].map((term) => (
-        <button
-          key={term}
-          onClick={() => {
-            if (term === "First Term") {
-              navigate("/Announcements");
-            } else {
-              console.log(`Clicked ${term} for ${session.name}`);
-            }
-            setOpen(null);
-          }}
-          className="text-[#101010] text-[14px] font-['Inter'] py-[10px] px-[16px] text-left hover:bg-[#E2F0D5]"
-        >
-          {term}
-        </button>
-      ))}
-    </div>
-  )}
-</div>
-
+                {/* DROPDOWN */}
+                {open === session.id && (
+                  <div className="absolute left-0 top-[52px] w-full bg-[#F3F9E9] rounded-b-[10px] shadow-md z-10 flex flex-col">
+                    {["First Term", "Second Term", "Third Term"].map((term) => (
+                      <button
+                        key={term}
+                        onClick={() => {
+                          if (term === "First Term") {
+                            navigate("/Announcements");
+                          } else {
+                            console.log(`Clicked ${term} for ${session.name}`);
+                          }
+                          setOpen(null);
+                        }}
+                        className="text-[#101010] text-[14px] font-['Inter'] py-[10px] px-[16px] text-left hover:bg-[#E2F0D5]"
+                      >
+                        {term}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>
