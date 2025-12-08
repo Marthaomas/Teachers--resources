@@ -13,9 +13,9 @@ const Sidebar = () => {
   const [active, setActive] = useState("dashboard");
 
   const menuItems = [
-    { id: "dashboard", label: "Dashboard", icon: dashboardIcon, path: "/" },
-    { id: "session", label: "Session Record", icon: filesIcon, path: "/session-record" },
-    { id: "announcements", label: "Announcements", icon: chatIcon, path: "/announcements" },
+    { id: "Schemeofwork", label: "Scheme of Work", icon: dashboardIcon, path: "/" },
+    { id: "syllabus", label: "Syllabus", icon: filesIcon, path: "/session-record" },
+    { id: "Modules", label: "Modules", icon: chatIcon, path: "/announcements" },
   ];
 
   return (

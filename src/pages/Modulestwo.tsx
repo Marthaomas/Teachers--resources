@@ -5,17 +5,42 @@ import Sidebar from "../components/Sidebar";
 import trash from "../assets/trash.png";
 import pencil from "../assets/pencil.png";
 import upload from "../assets/upload.png";
-const SessionRecord = () => {
+const Modulestwo = () => {
   const navigate = useNavigate();
   const [filter, setFilter] = useState("Active");
   const [open, setOpen] = useState<number | null>(null);
 
   const sessions = [
-    { id: 1, name: "2024/2025", status: "Active" },
-    { id: 2, name: "2023/2024", status: "Active" },
-    { id: 3, name: "2022/2023", status: "Active" },
-    { id: 4, name: "2021/2022", status: "Active" },
-    { id: 5, name: "2020/2021", status: "Not Active" },
+    {
+      id: 1,
+      Subjects: "Mathematics",
+      DateModified: "12-Apr-2026",
+      status: "Active",
+    },
+    {
+      id: 2,
+      Subjects: "Commerce",
+      DateModified: "12-Apr-2026",
+      status: "Active",
+    },
+    {
+      id: 3,
+      Subjects: "Chemistry",
+      DateModified: "12-Apr-2026",
+      status: "Active",
+    },
+    {
+      id: 4,
+      Subjects: "Accounting",
+      DateModified: "12-Apr-2026",
+      status: "Active",
+    },
+    {
+      id: 5,
+      Subjects: "Biology",
+      DateModified: "12-Apr-2026",
+      status: "Inactive",
+    },
   ];
 
   // Filter sessions based on selected status
@@ -34,73 +59,52 @@ const SessionRecord = () => {
         <div className="mb-6">
           {/* Mobile Heading */}
           <h1 className="block md:hidden text-[20px] font-semibold text-[#82C220] mb-4">
-            Admin - Syllabus1
+            Admin - Syllabus 3
           </h1>
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-3">
-            {/* LEFT SIDE — Upload Button */}
-            <div className="mt-3 md:mt-0 md:order-1 order-2">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full">
+            {/* LEFT SIDE */}
+            <div className="flex flex-wrap items-center gap-[6px] md:gap-[10px] ml-[2px] mt-2 md:mt-0">
+              <p className="text-[#82C220] font-['Inter'] font-normal text-[16px] leading-[120%]">
+                Syllabus
+              </p>
+
+              <div className="w-[16px] h-[16px] rounded-[4px] bg-[#F3F9E9] flex items-center justify-center">
+                <span className="text-[#82C220] text-[12px] font-['Inter']">
+                  {">"}
+                </span>
+              </div>
+
+              <p className="text-[#82C220] font-['Inter'] font-medium text-[16px] leading-[120%] whitespace-nowrap">
+                2023/2024 
+              </p>
+              <div className="w-[16px] h-[16px] rounded-[4px] bg-[#F3F9E9] flex items-center justify-center">
+                <span className="text-[#82C220] text-[12px] font-['Inter']">
+                  {">"}
+                </span>
+              </div>
+              <p className="text-[#4D4D4D] font-['Inter'] font-medium text-[16px] leading-[120%] whitespace-nowrap">
+                JSS 1
+              </p>
+            </div>
+
+            {/* RIGHT SIDE — Upload Button */}
+            <div className="mt-6 md:mt-0">
               <button
                 className="
-        flex items-center gap-2
-        bg-[#82C220] text-white
-        rounded-[8px]
-        border border-[#B2B2B2]
+      flex items-center gap-2
+      bg-[#82C220] text-white
+      rounded-[8px]
+      border border-[#B2B2B2]
 
-        w-full h-[60px] px-3      /* MOBILE */
-        md:w-[176px] md:h-[48px]  /* DESKTOP */
-        font-inter font-normal text-[14px] leading-[120%]
-      "
+      w-full h-[60px] px-3   /* MOBILE SIZE */
+      md:w-[176px] md:h-[48px]  /* DESKTOP SIZE */
+
+      font-inter font-normal text-[14px] leading-[120%]
+    "
               >
                 <img src={upload} alt="upload" className="w-[20px] h-[20px]" />
                 <span className="whitespace-nowrap">Upload Document</span>
               </button>
-            </div>
-
-            {/* RIGHT SIDE — Status Label + Select */}
-            <div className="flex flex-col md:flex-row md:items-center md:gap-3 order-1 md:order-2">
-              {/* Desktop Label */}
-              <label className="hidden md:block text-[#101010] font-normal text-[16px] leading-[120%]">
-                Status
-              </label>
-
-              {/* Select Container */}
-              <div
-                className="
-        relative flex flex-col items-start justify-center
-        bg-white border border-[#B2B2B2]
-        rounded-[8px]
-
-        /* MOBILE */
-        w-full h-[60px] px-3 py-2 gap-[2px]
-
-        /* DESKTOP */
-        md:w-[110px] md:h-[44px]
-        md:flex-row md:items-center md:justify-between 
-        md:px-3 md:py-0
-      "
-              >
-                {/* Mobile Label */}
-                <span className="text-[#8C8C8C] text-[13px] font-medium leading-none md:hidden">
-                  Status
-                </span>
-
-                {/* Select */}
-                <select
-                  value={filter}
-                  onChange={(e) => setFilter(e.target.value)}
-                  className="
-          bg-transparent outline-none cursor-pointer
-          text-[#101010] 
-          text-[15px] md:text-[14px]
-          font-normal leading-none
-          w-full
-        "
-                >
-                  <option value="Active">Active</option>
-                  <option value="Not Active">Not Active</option>
-                  <option value="All">All</option>
-                </select>
-              </div>
             </div>
           </div>
         </div>
@@ -115,8 +119,9 @@ const SessionRecord = () => {
       text-[#8C8C8C] text-[16px] font-medium
     "
           >
-            <div className="text-left">Name</div>
-            <div className="text-center">Status</div>
+            <div className="text-left">Subjects</div>
+            <div className="text-left">Date Modified</div>
+            <div className="text-left">Status</div>
             <div className="text-right pr-8">Action</div>
           </div>
 
@@ -133,13 +138,16 @@ const SessionRecord = () => {
             >
               {/* NAME */}
               <div className="text-[#101010] font-medium text-left">
-                {session.name}
+                {session.Subjects}
               </div>
 
               {/* PERIOD */}
+              <div className="text-[#101010] font-medium text-left">
+                {session.DateModified}
+              </div>
 
               {/* STATUS */}
-              <div className="flex items-center justify-center">
+              <div className="flex items-center text-left">
                 <div
                   className="
             flex items-center gap-2
@@ -171,7 +179,7 @@ const SessionRecord = () => {
                   }
                   className="
       bg-[#82C220] text-white w-[81px] h-[32px]
-      rounded-[6px] font-medium text-[14px]
+      rounded-[5px] font-medium text-[14px]
       flex items-center justify-center gap-2
     "
                 >
@@ -184,7 +192,7 @@ const SessionRecord = () => {
                     className="
       absolute
       top-[32px] 
-      right-[-25px]       
+      right-[-23px]       
       w-[120px]
       bg-[#F3F9E9] 
       shadow-md z-20
@@ -195,7 +203,7 @@ const SessionRecord = () => {
                       <button
                         key={term}
                         onClick={() => {
-                          if (term === "First Term") navigate("/Seconddashtwo");
+                          if (term === "First Term") navigate("/modaltwo");
                           setOpen(null);
                         }}
                         className="
@@ -227,14 +235,14 @@ const SessionRecord = () => {
 
               <div className="flex items-center justify-between w-full h-[50px] bg-white px-[12px] py-[8px] border-b border-[#E5E5E5]">
                 <p className="text-[#101010] text-[18px] font-medium leading-[100%]">
-                  2024/2025 Session
+                  JSS 1
                 </p>
 
                 {index > 0 && (
                   <div className="flex items-center gap-2">
                     {/* EDIT BUTTON */}
                     <button
-                      onClick={() => console.log(`Edit ${session.name}`)}
+                      onClick={() => console.log(`Edit ${session.Subjects}`)}
                       className="w-[32px] h-[32px] border border-[#DBDBDB] rounded-[8px] flex items-center justify-center"
                     >
                       <img src={pencil} alt="edit" />
@@ -242,7 +250,7 @@ const SessionRecord = () => {
 
                     {/* DELETE BUTTON */}
                     <button
-                      onClick={() => console.log(`Delete ${session.name}`)}
+                      onClick={() => console.log(`Delete ${session.Subjects}`)}
                       className="w-[32px] h-[32px] border border-[#DBDBDB] rounded-[8px] flex items-center justify-center"
                     >
                       <img src={trash} alt="delete" />
@@ -254,14 +262,22 @@ const SessionRecord = () => {
               {/* Name */}
               <div className="flex items-center gap-[24px] w-full h-[49px] bg-[#F4F4F4] px-[12px] py-[8px] border-b border-[#E5E5E5]">
                 <span className="text-[#8C8C8C] text-[14px] font-medium">
-                  Name
+                  Subjects
                 </span>
                 <span className="text-[#101010] text-[14px] font-medium">
-                  {session.name}
+                  {session.Subjects}
                 </span>
               </div>
 
               {/* Period */}
+              <div className="flex items-center gap-[24px] w-full h-[49px] bg-white px-[12px] py-[8px] border-b border-[#E5E5E5]">
+                <span className="text-[#8C8C8C] text-[14px] font-medium">
+                  Date Modified
+                </span>
+                <span className="text-[#101010] text-[14px] font-medium">
+                  {session.DateModified}
+                </span>
+              </div>
 
               {/* Status */}
               <div className="flex items-center gap-[24px] w-full h-[49px] bg-[#F4F4F4] px-[12px] py-[8px]">
@@ -288,22 +304,24 @@ const SessionRecord = () => {
                   onClick={() =>
                     setOpen(open === session.id ? null : session.id)
                   }
-                  className="bg-[#82C220] text-white w-full h-[48px] px-[16px] py-[6px] rounded-[6px] text-[14px] font-medium"
+                  className="bg-[#82C220] text-white w-full h-[48px] px-[16px] py-[6px] rounded-[8px] text-[14px] font-medium"
                 >
                   View
                 </button>
 
                 {/* DROPDOWN */}
                 {open === session.id && (
-                  <div className="absolute left-0 top-full w-full bg-[#F3F9E9] rounded-b-[10px] shadow-md z-10 flex flex-col">
+                  <div className="absolute left-0 top-full  w-full bg-[#F3F9E9] rounded-b-[10px] shadow-md z-10 flex flex-col">
                     {["First Term", "Second Term", "Third Term"].map((term) => (
                       <button
                         key={term}
                         onClick={() => {
                           if (term === "First Term") {
-                            navigate("/Seconddashtwo");
+                            navigate("/modaltwo");
                           } else {
-                            console.log(`Clicked ${term} for ${session.name}`);
+                            console.log(
+                              `Clicked ${term} for ${session.Subjects}`
+                            );
                           }
                           setOpen(null);
                         }}
@@ -323,4 +341,4 @@ const SessionRecord = () => {
   );
 };
 
-export default SessionRecord;
+export default Modulestwo;
