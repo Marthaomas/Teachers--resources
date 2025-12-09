@@ -34,7 +34,7 @@ const SessionRecord = () => {
         <div className="mb-6">
           {/* Mobile Heading */}
           <h1 className="block md:hidden text-[20px] font-semibold text-[#82C220] mb-4">
-            Admin - Modules1
+            Teacher - Modules
           </h1>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-3">
             {/* LEFT SIDE — Upload Button */}

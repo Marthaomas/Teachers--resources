@@ -59,7 +59,7 @@ const Modules = () => {
         <div className="mb-6">
           {/* Mobile Heading */}
           <h1 className="block md:hidden text-[20px] font-semibold text-[#82C220] mb-4">
-            Admin - Modules3
+            Teacher - Modules3
           </h1>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full">
             {/* LEFT SIDE */}

@@ -39,7 +39,7 @@ const SessionRecord = () => {
         <div className="mb-6">
           {/* Mobile Heading */}
           <h1 className="block md:hidden text-[20px] font-semibold text-[#82C220] mb-4">
-            Admin - Modules2
+            Teacher - Modules2
           </h1>
 
           {/* Filter Section */}

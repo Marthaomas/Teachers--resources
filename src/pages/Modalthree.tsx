@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import upload from "../assets/upload.png";
 import Sidebar from "../components/Sidebar";
 import doc from "../assets/doc.png";
-
+import dropdown from "../assets/dropdown.png"
 const Modalthree = () => {
   const navigate = useNavigate();
 
@@ -47,16 +47,20 @@ const Modalthree = () => {
             <button
               onClick={() => navigate("/uploadscheme")}
               className="
-                flex items-center justify-center gap-2
-                bg-[#82C220] text-white border border-[#B2B2B2]
-                rounded-[8px]
-                w-full h-[50px]
-                md:w-[176px] md:h-[48px]
-                text-[14px]
+              flex items-center justify-center 
+              gap-[4px]                    
+              bg-[#82C220] text-white
+              rounded-[8px]
+              border 
+              w-full h-[60px] px-3
+              md:pl-2
+              md:w-[122px] md:h-[48px] md:px-2
+        
+              font-inter text-[14px] leading-[120%]
               "
             >
-              <img src={upload} className="w-[20px] h-[20px]" alt="upload" />
-              <span className="whitespace-nowrap">Upload Document</span>
+              <img src={dropdown} className="w-[20px] h-[20px] object-contain" alt="upload" />
+              <span className="whitespace-nowrap">Download</span>
             </button>
           </div>
         </div>

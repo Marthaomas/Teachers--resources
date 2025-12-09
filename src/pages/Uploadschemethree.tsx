@@ -164,7 +164,7 @@ const UploadSchemethree = () => {
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-[24px] font-medium text-[#101010]">
-            Upload Scheme of Work
+            Upload Module
           </h2>
 
           <button
@@ -203,7 +203,7 @@ const UploadSchemethree = () => {
     </div>
 
     {/* Select Week */}
-    <div className="w-full md:w-[147px]  md:pr-8">
+    <div className="w-full md:w-[150px]  md:pr-8">
       <CustomSelect
         label="Select Week"
         placeholder="Week 1"

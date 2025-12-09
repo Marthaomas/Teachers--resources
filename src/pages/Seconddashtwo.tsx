@@ -39,7 +39,7 @@ const Seconddashtwo = () => {
         <div className="mb-6">
           {/* Mobile Heading */}
           <h1 className="block md:hidden text-[20px] font-semibold text-[#82C220] mb-4">
-            Admin - Syllabus2
+            Teacher - Syllabus2
           </h1>
 
           {/* Filter Section */}
